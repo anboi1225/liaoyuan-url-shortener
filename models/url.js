@@ -1,9 +1,11 @@
 /**
  * Created by Boyang on 2016/8/5.
  */
-var mongoose = require('mongoose');
+var restful = require('node-restful');
+var mongoose = restful.mongoose;
 var Schema = mongoose.Schema;
 var hash = require('../hash.js');
+
 
 // create the counters schema with an _id field and a seq field
 var CounterSchema = Schema({
@@ -38,5 +40,13 @@ urlSchema.pre('save', function(next){
     });
 });
 
-var Url = mongoose.model('Url', urlSchema);
+var Url = restful.model('Url', urlSchema);
 module.exports = Url;
+
+
+
+
+
+
+
+

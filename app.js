@@ -22,6 +22,8 @@ mongoose.connect('mongodb://anboi:lovelife1225@ds139725.mlab.com:39725/liaoyuan_
 // tell Express to serve files from our public folder
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use('/api',  require('./routes/api'));
+
 app.post('/api/shortening', function(req, res){
   var originalUrl = req.body.url;
   var shortUrl = ''; //要返回的短网址
