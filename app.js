@@ -65,6 +65,22 @@ app.post('/api/shortening', function(req, res){
 
 });
 
+app.get('/:encoded_id', function(req, res){
+  var eId = req.params.encoded_id;
+  var id = hash.decode(eId);
+
+  // check if url already exists in database
+  Url.findOne({_id: id}, function (err, doc){
+    if (doc) {
+      // found an entry in the DB, redirect the user to their destination
+      res.redirect(doc.original_url);
+    } else {
+      // nothing found, take 'em home
+      res.redirect(config.webhost);
+    }
+  });
+});
+
 app.get('/', function(req, res){
   // route to serve up the homepage (index.html)
   res.sendFile(path.join(__dirname, 'views/index.html'));
