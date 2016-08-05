@@ -8,10 +8,22 @@ body {
     background-color: #ffffff;
 }
 
-body {
+/*body {*/
+    /*color: #C0C0C0;*/
+    /*text-align: center;*/
+    /*font-family: 'Raleway', sans-serif;*/
+/*}*/
+
+.title{
+    color: #0080FF;
+
+    vertical-align: text-top;
+    margin-left: 5%;
+}
+
+.slogan{
     color: #C0C0C0;
     text-align: center;
-    font-family: 'Raleway', sans-serif;
 }
 
 .btn-shorten {
