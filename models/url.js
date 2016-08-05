@@ -3,6 +3,7 @@
  */
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
+var hash = require('../hash.js');
 
 // create the counters schema with an _id field and a seq field
 var CounterSchema = Schema({
@@ -17,6 +18,7 @@ var counter = mongoose.model('counter', CounterSchema);
 var urlSchema = new Schema({
     _id: {type: Number, index: true},
     original_url: String,
+    path: String,
     created_at: Date
 });
 
@@ -30,6 +32,7 @@ urlSchema.pre('save', function(next){
             return next(error);
         // set the _id of the urls collection to the incremented value of the counter
         doc._id = counter.value;
+        doc.path = hash.encode(counter.value);
         doc.created_at = new Date();
         next();
     });
