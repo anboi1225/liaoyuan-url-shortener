@@ -66,11 +66,11 @@ app.post('/api/shortening', function(req, res){
 });
 
 app.get('/:path', function(req, res){
-  // var eId = req.params.encoded_id;
+  var base62code = req.params.path;
   // var id = hash.decode(eId);
 
   // check if url already exists in database
-  Url.findOne({path: path}, function (err, doc){
+  Url.findOne({path: base62code}, function (err, doc){
     if (doc) {
       // found an entry in the DB, redirect the user to their destination
       res.redirect(doc.original_url);
