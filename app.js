@@ -1,25 +1,18 @@
-// require and instantiate express
 var express = require('express');
 var app = express();
-// we'll need the path module to correctly concatenate our paths
 var path = require('path');
-
 var bodyParser = require('body-parser');
-
 var mongoose = require('mongoose');
 var config = require('./config');
-// base58 for encoding and decoding functions
+// 哈希算法
 var hash = require('./hash.js');
-
-// grab the url model
+// 导入Url model
 var Url = require('./models/url');
 
 // handles JSON bodies
 app.use(bodyParser.json());
 // handles URL encoded bodies
 app.use(bodyParser.urlencoded({ extended: true }));
-
-
 
 mongoose.connect('mongodb://anboi:lovelife1225@ds139725.mlab.com:39725/liaoyuan_url_shortener');
 
@@ -31,7 +24,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.post('/api/shortening', function(req, res){
   var originalUrl = req.body.url;
-  var shortUrl = ''; // the shortened URL we will return
+  var shortUrl = ''; //要返回的短网址
 
   // check if url already exists in database
   Url.findOne({original_url: originalUrl}, function (err, doc){
@@ -67,7 +60,6 @@ app.post('/api/shortening', function(req, res){
 
 app.get('/:path', function(req, res){
   var base62code = req.params.path;
-  // var id = hash.decode(eId);
 
   // check if url already exists in database
   Url.findOne({path: base62code}, function (err, doc){

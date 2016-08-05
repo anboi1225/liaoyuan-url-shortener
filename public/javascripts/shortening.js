@@ -16,6 +16,7 @@ $('.btn-shorten').on('click', function(){
                 + data.shortUrl + '</a>';
             $('#link').html(resultHTML);
             $('#link').hide().fadeIn('slow');
+            $('#bh').show();
         }
     });
 

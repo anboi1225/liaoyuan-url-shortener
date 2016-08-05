@@ -26,6 +26,25 @@ body {
     border: none;
 }
 
+.btn-copy {
+    color: #0080FF;
+    background-color:#FFFFFF;
+    border-color: #000000;
+    font-size: large;
+    display: none;
+}
+
+#link{
+    text-align: center;
+    margin-top: 10%;
+}
+
+#cpbtn{
+    text-align: center;
+    margin-top: 10%;
+}
+
+
 .btn-shorten:hover,
 .btn-shorten:focus,
 .btn-shorten:active,
@@ -75,7 +94,7 @@ body {
 }
 
 #link a{
-    color: #F89406;
+    color: #0080FF;
     font-size: 1.5em;
     margin-right: 20px;
 }
