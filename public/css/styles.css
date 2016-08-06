@@ -33,11 +33,6 @@ body {
     display: none;
 }
 
-#link{
-    text-align: center;
-    margin-top: 10%;
-}
-
 #cpbtn{
     text-align: center;
     margin-top: 10%;
@@ -88,7 +83,9 @@ body {
 }
 
 #link {
-    display: none;
+    /*display: none;*/
+    text-align: center;
+    margin-top: 10%;
     padding-top: 15px;
 }
 

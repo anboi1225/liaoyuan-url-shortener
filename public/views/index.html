@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app>
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,19 +8,17 @@
     <title>URL Shortener - coligo.io</title>
     <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <link href="css/styles.css" rel="stylesheet">
+    <link href="../css/styles.css" rel="stylesheet">
 </head>
 <body>
 
-<div class="site-wrapper">
+<div class="site-wrapper" ng-controller="indexctrl">
     <div class="site-wrapper-inner">
         <div class="main-container">
             <div class="inner cover">
-                <img src="images/liaoyuan-logo-left-right.svg" alt="" width="300" height="158">
+                <img src="../images/liaoyuan-logo-left-right.svg" alt="" width="300" height="158">
                 <font class="title" size="6">「短网址生成服务」</font>
                 <p class = "slogan"><font size="5">网址，不再是冗长的符号</font></p>
-
-
 
                 <div class="row">
 
@@ -28,13 +26,14 @@
                         <div class="input-group input-group-lg">
                             <input id="url-field" type="text" class="form-control" placeholder="请输入原网址...">
                             <span class="input-group-btn">
-                            <button class="btn btn-shorten" type="button">生成短网址</button>
+                            <button class="btn btn-shorten" type="button" ng-click="showsu()">生成短网址</button>
                             </span>
                         </div>
                     </div>
 
                     <div class="col-lg-12">
                         <div id="link">
+                            <a class="result" href="{{c_short_url}}">{{c_short_url}}</a>
                         </div>
 
                         <div id="cpbtn">
@@ -52,7 +51,9 @@
 
 <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-<script src="javascripts/shortening.js"></script>
-<script src="javascripts/copy2clipboard.js"></script>
+<script src="../javascripts/copy2clipboard.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+<script src="../controllers/controller.js"></script>
+
 </body>
 </html>
