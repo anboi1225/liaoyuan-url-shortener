@@ -69,20 +69,14 @@ app.get('/:path', function(req, res){
   Url.findOne({path: base62code}, function (err, doc){
     if (doc) {
       // found an entry in the DB, redirect the user to their destination
-      //res.redirect(doc.original_url);
-      res.send({'nu' : doc.original_url});
+      res.redirect(doc.original_url);
     } else {
       // nothing found, take 'em home
-      //res.redirect(config.webhost);
-      res.send({'nu' : config.webhost});
+      res.redirect(config.webhost);
     }
   });
 });
 
-// app.get('/', function(req, res){
-//   // route to serve up the homepage (index.html)
-//   res.sendFile(path.join(__dirname, 'views/index.html'));
-// });
 
 var server = app.listen(process.env.PORT || 5000, function(){
   console.log('Server listening on port process.env.PORT || 5000');
